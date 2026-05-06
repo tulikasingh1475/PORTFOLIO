@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in Touch | Tulika Singh</title>
+  <link rel="stylesheet" href="C:\Users\santo\portfolio\style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <section class="contact-container">
+    <div class="container">
+      <h1 style="text-align:center; font-family:'Playfair Display', serif; font-size:3rem; color:var(--accent-1); text-shadow:0 0 20px rgba(96,165,250,0.5), 0 0 40px rgba(96,165,250,0.3); margin-bottom:60px;">
+        Get in Touch
+      </h1>
+
+      <div class="contact-grid">
+        <!-- Instagram -->
+        <div class="contact-card tilt-on-hover">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="icon-wrap">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="40" height="40">
+              </div>
+              <h3>Instagram</h3>
+            </div>
+            <div class="card-back">
+              <div class="qr">
+                <img src="C:\Users\santo\portfolio\image_tuls\URL QR Code (1).png" alt="Instagram QR" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-card tilt-on-hover">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="icon-wrap">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="40" height="40">
+              </div>
+              <h3>LinkedIn</h3>
+            </div>
+            <div class="card-back">
+              <div class="qr">
+                <img src="C:\Users\santo\portfolio\image_tuls\URL QR Code.png" alt="LinkedIn QR" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card tilt-on-hover">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="icon-wrap">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="40" height="40">
+              </div>
+              <h3>Email</h3>
+            </div>
+            <div class="card-back">
+              <div class="qr">
+                <img src="C:\Users\santo\portfolio\image_tuls\Untitled 1 (2).png" alt="Email QR" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-left">© 2025 Tulika Singh</div>
+          <div class="footer-icons"><a href="index.html" class="footer-icon-circle">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="18" alt="Home" />
+</a>
+
+
+            <a href="https://instagram.com" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" width="22" height="22" /></a>
+            <a href="https://www.linkedin.com/in/tulika-singh-5a00b3342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app target=_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="22" height="22" /></a>
+            <a href="mailto:tulikasingh0606@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="22" height="22" /></a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </section>
+
+  <script>
+    // optional interactive tilt for realism
+    document.querySelectorAll('.tilt-on-hover').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width/2;
+        const y = e.clientY - rect.top - rect.height/2;
+        card.style.transform = `rotateY(${x/25}deg) rotateX(${-y/25}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0) rotateX(0)';
+      });
+    });
+  </script>
+
+</body>
+</html>

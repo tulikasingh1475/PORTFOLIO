@@ -1,0 +1,350 @@
+* =========================
+   Tulika — Master style.css
+   Next-gen: Gradient + Neon + Glass + 3D Tilt
+   ========================= */
+
+/* ---------- Root palette & shared vars ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap');
+
+body {
+  font-family: 'Lora', serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+:root{
+  --bg-1: #07070a;
+  --bg-2: #071428;
+  --accent-1: rgb(96,165,250); /* light blue */
+  --accent-2: rgb(59,130,246); /* deep blue */
+  --neon: rgba(96,165,250,0.18);
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  --muted: rgba(255,255,255,0.72);
+  --soft-white: rgba(255,255,255,0.95);
+  --card-elev: 0 10px 40px rgba(2,6,23,0.75);
+  --glass-border: rgba(96,165,250,0.14);
+  --radius-lg: 16px;
+  --radius-sm: 10px;
+  --font-head: "Bebas Neue", system-ui, sans-serif;
+  --font-body: "Inter", "Poppins", system-ui, sans-serif;
+}
+
+/* ---------- base layout ---------- */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  color:var(--soft-white);
+  background: linear-gradient(120deg, var(--bg-1) 0%, #051026 45%, var(--bg-2) 100%);
+  overflow-x:hidden;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+  perspective:1200px;
+}
+
+/* Animated gradient layer — subtle slow motion for 'parallax' feeling */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0;
+  background:
+    radial-gradient(1200px 400px at 10% 20%, rgba(96,165,250,0.06), transparent 10%),
+    radial-gradient(900px 300px at 90% 80%, rgba(59,130,246,0.05), transparent 10%),
+    radial-gradient(600px 260px at 70% 10%, rgba(120,80,255,0.02), transparent 8%);
+  mix-blend-mode: screen;
+  pointer-events:none;
+  animation: slowMove 18s linear infinite;
+  filter: blur(40px) saturate(120%);
+}
+@keyframes slowMove{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(-4%,2%,0) scale(1.02)}
+  100%{transform:translate3d(0,0,0) scale(1)}
+}
+
+/* subtle grain overlay for texture */
+body::after{
+  content:""; position:fixed; inset:0; z-index:1; pointer-events:none;
+  background-image:linear-gradient(transparent, rgba(255,255,255,0.002));
+  mix-blend-mode:overlay; opacity:0.6;
+}
+
+/* ---------- typography / utilities ---------- */
+.logo-text{font-family:var(--font-head);font-size:28px;font-weight:700;letter-spacing:0.6px;display:flex;align-items:center;gap:8px}
+h1,h2,h3{font-family:var(--font-head);margin:0;color:var(--soft-white)}
+h1{font-size:clamp(28px,4.6vw,48px);line-height:1}
+h2{font-size:clamp(20px,2.4vw,28px)}
+.lead{color:var(--muted);font-size:1.05rem;line-height:1.5}
+
+/* small helpers */
+.container{max-width:1100px;margin:0 auto;padding:28px;position:relative;z-index:20}
+.row{display:flex;gap:20px;flex-wrap:wrap}
+.center{display:flex;align-items:center;justify-content:center}
+.col{flex:1}
+
+/* ---------- Buttons (your original but upgraded with neon + glass) ---------- */
+.bookmarkBtn{
+  width:auto;min-width:140px;height:44px;border-radius:999px;
+  border:1px solid rgba(96,165,250,0.18);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  display:flex;align-items:center;justify-content:flex-start;cursor:pointer;
+  transition:all 0.32s cubic-bezier(.2,.9,.35,1);overflow:hidden;padding:0 6px;position:relative;
+  backdrop-filter: blur(6px) saturate(120%);box-shadow: 0 6px 30px rgba(8,12,24,0.6);
+}
+.IconContainer{
+  width:36px;height:36px;border-radius:999px;
+  background:linear-gradient(180deg,var(--accent-1),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;margin-left:6px;
+  box-shadow:0 6px 20px rgba(59,130,246,0.16), inset 0 -6px 16px rgba(255,255,255,0.04);
+  transition:all .34s cubic-bezier(.2,.9,.35,1);
+  transform-origin:left center;
+}
+.bookmarkBtn .text{margin-left:10px;margin-right:10px;font-weight:600}
+.bookmarkBtn:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(10,30,80,0.45)}
+.bookmarkBtn:hover .IconContainer{width:calc(100% - 16px);border-radius:28px}
+.bookmarkBtn:active{transform:translateY(-2px) scale(.98)}
+
+/* add subtle neon outline on focus */
+.bookmarkBtn:focus{outline:none;box-shadow:0 0 30px rgba(59,130,246,0.12), 0 12px 40px rgba(2,6,23,0.6)}
+
+/* ---------- Hero (glass panel + 3D tilt + neon halo) ---------- */
+.hero{
+  min-height:78vh;display:flex;align-items:center;position:relative;z-index:10;padding-top:20px;padding-bottom:20px;
+}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;width:100%;max-width:1200px;margin:0 auto;padding:24px}
+@media (max-width:920px){.hero-inner{grid-template-columns:1fr; padding:20px}}
+
+/* hero text card (glass) */
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+  border-radius:var(--radius-lg);
+  padding:30px;
+  border:1px solid var(--glass-border);
+  box-shadow:var(--card-elev), 0 2px 12px rgba(59,130,246,0.04);
+  backdrop-filter: blur(10px) saturate(130%);
+  transform-style:preserve-3d;
+  transition: transform .45s cubic-bezier(.2,.9,.36,1), box-shadow .45s;
+  position:relative;overflow:hidden;
+}
+
+/* neon rim */
+.hero-card::before{
+  content:""; position:absolute; inset:-2px; z-index:0; pointer-events:none;
+  background:linear-gradient(90deg, rgba(96,165,250,0.06), rgba(59,130,246,0.03));
+  mix-blend-mode:screen; filter:blur(14px);
+}
+
+/* tilt effect on hover */
+.hero-card.tilt{
+  transform: translateZ(12px) rotateX(0deg);
+}
+.hero-card:hover{transform:translate3d(0,-8px,26px);box-shadow:0 36px 90px rgba(2,6,23,0.85)}
+
+/* hero portrait (glass frame) */
+.hero-portrait{
+  width:420px;height:420px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+  display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 12px 40px rgba(2,6,23,0.7);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* neon halo behind portrait */
+.hero-portrait::after{
+  content:"";position:absolute;inset: -8% -8% auto -8%;height:60%;z-index:0;background:
+  radial-gradient(40% 60% at 20% 20%, rgba(96,165,250,0.12), transparent 18%),
+  radial-gradient(40% 40% at 80% 80%, rgba(59,130,246,0.10), transparent 22%);
+  filter:blur(22px);
+}
+
+/* heading styles inside hero */
+.hero-card h1{font-size:clamp(28px,4.2vw,42px);z-index:2}
+.hero-card p{color:var(--muted);z-index:2;margin:12px 0 0;line-height:1.6}
+
+/* CTA row */
+.hero-cta{display:flex;gap:14px;margin-top:18px;z-index:3}
+.primary-cta{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#021124;padding:10px 14px;border-radius:12px;border:none;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(59,130,246,0.16)}
+.secondary-cta{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:10px 14px;border-radius:12px}
+
+/* ---------- Cards / Projects (floating + tilt + neon) ---------- */
+.card{
+  border-radius:14px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.016), rgba(255,255,255,0.006));
+  border:1px solid rgba(255,255,255,0.03);backdrop-filter: blur(8px);box-shadow:0 8px 32px rgba(2,6,23,0.7);
+  transition: transform .36s cubic-bezier(.2,.9,.36,1), box-shadow .36s;
+}
+.card .meta{padding:14px}
+.card:hover{transform:translate3d(0,-12px,30px);box-shadow:0 36px 90px rgba(2,6,23,0.9)}
+.card .cover{height:160px;background:#0b1020;display:block;overflow:hidden}
+.card .cover img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform .6s}
+.card:hover .cover img{transform:scale(1.06)}
+
+/* project grid */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:980px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.projects-grid{grid-template-columns:1fr}}
+
+/* ---------- Skill bars (neon progress) ---------- */
+.skill{padding:8px 0}
+.skill .meta{display:flex;justify-content:space-between;font-weight:700;color:var(--muted);margin-bottom:6px}
+.bar{height:12px;border-radius:99px;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));overflow:hidden}
+.bar > i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 24px rgba(59,130,246,0.18);transition:width .6s}
+
+/* ---------- Contact (Get in Touch) cards - horizontal rotate ---------- */
+.contact-container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 20px;z-index:20}
+.contact-grid{display:flex;gap:28px;flex-wrap:wrap;align-items:center;justify-content:center}
+.contact-card{width:260px;height:320px;perspective:1400px;border-radius:18px;position:relative}
+.card-inner{position:relative;width:100%;height:100%;transition:transform .72s cubic-bezier(.2,.9,.36,1);transform-style:preserve-3d}
+.contact-card:hover .card-inner{transform:rotateY(180deg) translateZ(6px)}
+.card-front,.card-back{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));box-shadow:0 12px 40px rgba(2,6,23,0.7)}
+.card-front{z-index:2}
+.card-back{transform:rotateY(180deg);background:linear-gradient(90deg, rgba(12,12,12,0.9), rgba(20,20,30,0.94));border:1px solid rgba(59,130,246,0.08)}
+
+/* QR style on back */
+.card-back .qr{width:160px;height:160px;border-radius:10px;border:1px solid rgba(96,165,250,0.12);box-shadow:0 10px 30px rgba(59,130,246,0.06);overflow:hidden}
+
+/* front icon + title */
+.card-front .icon-wrap{width:72px;height:72px;border-radius:999px;background:linear-gradient(180deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;box-shadow:0 12px 36px rgba(59,130,246,0.12)}
+.card-front h3{margin-top:12px}
+
+/* ---------- Universal Footer (glowing icons row) ---------- */
+.site-footer{padding:30px 0;border-top:1px solid rgba(96,165,250,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.007));backdrop-filter:blur(6px)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;margin:0 auto;padding:0 20px}
+.footer-left{color:var(--muted);font-size:0.95rem}
+.footer-icons{display:flex;gap:12px;align-items:center}
+.footer-icons a{width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--accent-1),var(--accent-2));box-shadow:0 12px 36px rgba(59,130,246,0.12);transform:translateZ(0);transition:transform .28s}
+.footer-icons a:hover{transform:translateY(-6px) scale(1.04);filter:brightness(1.05)}
+
+/* ---------- small utility animations ---------- */
+@keyframes floaty {
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+.float-slow{animation:floaty 6s ease-in-out infinite}
+
+/* fade in utilities */
+@keyframes fade-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate-fade-in{animation:fade-in 0.6s ease-out forwards}
+.animate-delay-100{animation-delay:.1s}
+.animate-delay-200{animation-delay:.2s}
+.animate-delay-300{animation-delay:.3s}
+
+/* ---------- 3D tilt for interactive elements (mouse hover) ---------- */
+/* slight rotate on hover for cards; to get more interactive tilt with mouse you'll add a tiny JS listener to rotate based on cursor — optional */
+.tilt-on-hover{transition:transform .38s cubic-bezier(.2,.9,.36,1);transform-origin:center;will-change:transform}
+.tilt-on-hover:hover{transform:rotateX(6deg) rotateY(-6deg) translateZ(12px)}
+
+/* ---------- accessibility / responsive ---------- */
+@media (max-width:920px){
+  .hero-inner{grid-template-columns:1fr;gap:18px}
+  .hero-portrait{width:320px;height:320px;margin:0 auto}
+  .card{margin-bottom:12px}
+}
+@media (max-width:620px){
+  .container{padding:16px}
+  .hero-portrait{width:260px;height:260px}
+  .projects-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:12px}
+}
+
+/* ---------- small print ---------- */
+/* keep interactive elements above background layers */
+.header, .navbar, .container, footer, .hero-card, .card, .contact-card{position:relative;z-index:30}
+
+/* ---------- preserve original classes you shared earlier (no breaking) ---------- */
+/* These reinforce your earlier CSS so existing HTML maps correctly */
+.icon{border-radius:1px;transition-duration:0.3s}
+.text{transition-duration:0.3s}
+.logo-icon{width:36px;height:36px}
+
+/* ---------- end of stylesheet ---------- */
+.resume-btn {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  padding: 10px 26px;
+  border-radius: 10px;
+  color: var(--soft-white);
+  background: linear-gradient(90deg, rgba(139,92,246,0.8), rgba(192,132,252,0.8));
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 15px rgba(139,92,246,0.4);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.resume-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 25px rgba(192,132,252,0.6), 0 0 10px rgba(139,92,246,0.4);
+  background: linear-gradient(90deg, rgba(192,132,252,1), rgba(139,92,246,1));
+}  
+/* --------------------------- */
+/* FIX FOOTER ICONS (FINAL)    */
+/* --------------------------- */
+
+.site-footer {
+  padding: 20px 0;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(168,85,247,0.2);
+  backdrop-filter: blur(12px);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-left {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.footer-icons .icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(168,85,247,0.6));
+  transition: 0.3s ease;
+}
+
+.footer-icons .icon:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px rgba(168,85,247,1));
+}
+.footer-icon-circle {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  box-shadow:
+    0 0 10px rgba(96,165,250,0.6),
+    0 0 20px rgba(96,165,250,0.4);
+  backdrop-filter: blur(4px);
+  transition: 0.3s ease;
+}
+
+.footer-icon-circle img {
+  filter: brightness(0) invert(1);
+}
+
+.footer-icon-circle:hover {
+  transform: scale(1.12);
+  box-shadow:
+    0 0 18px rgba(96,165,250,1),
+    0 0 30px rgba(96,165,250,0.9);
+}

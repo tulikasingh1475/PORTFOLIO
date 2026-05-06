@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Tulika Singh</title>
+  <link rel="stylesheet" href="C:\Users\santo\portfolio\style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container center">
+      <h1 class="logo-text">Projects</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="projects-section animate-fade-in">
+      <h2 style="text-align:center; margin-bottom:30px;">My Featured Work</h2>
+
+      <div class="projects-grid">
+
+        <a href="medease.html" class="card tilt-on-hover">
+          <div class="cover">
+            <img src="C:\Users\santo\portfolio\image_tuls\medease logo .jpg" alt="MediEase Project">
+          </div>
+          <div class="meta">
+            <h3>MediEase</h3>
+            <p class="lead">A smart healthcare prototype that connects patients, doctors, and AI-based diagnostics.</p>
+          </div>
+        </a>
+
+        <a href="house-price.html" class="card tilt-on-hover">
+          <div class="cover">
+            <img src="C:\Users\santo\portfolio\image_tuls\homify logo .jpg" alt="House Price Prediction">
+          </div>
+          <div class="meta">
+            <h3>House Price Prediction System</h3>
+            <p class="lead">A machine learning app that predicts real-estate prices using regression models.</p>
+          </div>
+        </a>
+
+        <a href="weather-app.html" class="card tilt-on-hover">
+          <div class="cover">
+            <img src="C:\Users\santo\portfolio\image_tuls\weather .jpg" alt="Weather App">
+          </div>
+          <div class="meta">
+            <h3>Weather App</h3>
+            <p class="lead">A live weather prediction tool powered by real-time API data and Streamlit ML models.</p>
+          </div>
+        </a>
+
+        <a href="medical-ai.html" class="card tilt-on-hover">
+          <div class="cover">
+            <img src="C:\Users\santo\portfolio\image_tuls\med_ai.jpeg" alt="Medical AI Image Analyzer">
+          </div>
+          <div class="meta">
+            <h3>Medical AI Image Analyzer</h3>
+            <p class="lead">AI-powered analysis of X-rays and scans for fast, accurate medical insights.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        © 2025 Tulika Singh. All Rights Reserved.
+      </div>
+      <div class="footer-icons">
+        <a href="index.html" class="footer-icon-circle">
+      <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="18" alt="Home" />
+      </a>
+
+        <a href="https://www.linkedin.com/in/tulika-singh-5a00b3342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon"></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="icon"></a>
+        <a href="mailto:tulikasingh0606@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"  alt="Email" class="icon"></a>
+      </div>
+     
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.transform = `rotateY(${(x - rect.width / 2) / 20}deg) rotateX(${-(y - rect.height / 2) / 20}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+
+</body>
+</html>

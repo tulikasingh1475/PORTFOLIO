@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Tulika | Portfolio</title>
+  <link rel="stylesheet" href="C:\Users\santo\portfolio\style.css">
+</head>
+<body>
+
+  <section class="container animate-fade-in">
+    <h1 class="center" style="font-family:'Playfair Display',serif;font-size:2.8rem;margin-bottom:30px;">
+      About <span style="color:var(--accent-1);margin-left:8px;">Tulika Singh</span>
+    </h1>
+
+    <div class="row" style="justify-content:center;gap:30px;flex-wrap:wrap;">
+
+      <!-- EXPERIENCE -->
+      <div class="card tilt-on-hover animate-fade-in animate-delay-100" style="flex:1 1 320px;min-width:320px;">
+        <div class="meta">
+          <h2>Experience & Leadership</h2>
+          <p class="lead">
+            <b>Co-Head – Finance Department</b>, Managenius,IITM GGSIPU<br>
+            Managed sponsorships, budgeting, and event finances.<br><br>
+            <b>Event Coordinator & Anchor</b><br>
+            Coordinated and hosted 20+ college events, oversaw planning and execution.<br><br>
+            <b>Volunteer – Vrikshit Foundatin</b><br>
+            Contributed to social initiatives and community awareness.
+          </p>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="card tilt-on-hover animate-fade-in animate-delay-200" style="flex:1 1 320px;min-width:320px;">
+        <div class="meta">
+          <h2>Education</h2>
+          <p class="lead">
+            <b>Bachelor of Computer Applications (BCA)</b><br>
+            Institute of Innovation in Technology & Management, GGSIPU<br>
+            <i>Expected Graduation: [2028]</i><br><br>
+            Core Subjects: C, Java, Python, DBMS, DSA, ML, Power BI<br><br>
+            <b>Vishwa Bharati Public School</b><br>
+            Humanities with Computer Science.
+            <i>Graduation: [2024]</i><br><br>
+            Core Subjects: political sci, history, economics, english, Computer sci<br><br>
+          </p>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="card tilt-on-hover animate-fade-in animate-delay-300" style="flex:1 1 320px;min-width:320px;">
+        <div class="meta">
+          <h2>Skills</h2>
+          <p class="lead">
+            <b>Technical:</b> Python, Java, C, SQL, HTML, CSS, JS, PHP, Power BI, Streamlit, ML<br><br>
+            <b>Soft Skills:</b> Leadership, Public Speaking, Communication, Teamwork, Analytical Thinking.
+          </p>
+        </div>
+      </div>
+
+      <!-- INTERESTS -->
+      <div class="card tilt-on-hover animate-fade-in animate-delay-300" style="flex:1 1 320px;min-width:320px;">
+        <div class="meta">
+          <h2>Interests</h2>
+          <p class="lead">
+            Data Science • Machine Learning • Public Speaking • Event Hosting • Leadership • Volunteering
+          </p>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="card tilt-on-hover animate-fade-in animate-delay-200" style="flex:1 1 660px;min-width:660px;">
+        <div class="meta">
+          <h2>Professional Summary</h2>
+          <p class="lead">
+            Enthusiastic BCA student at IITM (GGSIPU) with a deep interest in Data Science, Machine Learning, and Technology Management. Skilled in leadership and public speaking, passionate about turning ideas into impactful solutions.
+          </p>
+          <div class="center" style="margin-top:20px;">
+            <a href="Tulika_Singh_Resume.pdf" class="resume-btn" download>Download Resume</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- UNIVERSAL FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        © 2025 Tulika Singh — Crafted with 💜 and curiosity.
+      </div>
+      <div class="footer-icons">
+        <a href="index.html" class="footer-icon-circle">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="18" alt="Home" />
+</a>
+
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="instagram" width="22"></a>
+        <a href="https://www.linkedin.com/in/tulika-singh-5a00b3342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="22"></a>
+        <a href="mailto:tulikasingh0606@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"  alt="Email" width="22"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: interactive 3D tilt on mousemove
+    document.querySelectorAll('.tilt-on-hover').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / 18);
+        const rotateY = ((x - centerX) / -18);
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(18px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+      });
+    });
+  </script>
+
+</body>
+
+</html>

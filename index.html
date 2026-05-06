@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tulika Singh — Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Core style (your master CSS) -->
+  <link rel="stylesheet" href="C:\Users\santo\portfolio\style.css">
+
+  <style>
+    /* small page-specific tweaks to mesh with style.css */
+    header.site-header {
+      position: sticky;
+      top: 12px;
+      z-index: 60;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+      backdrop-filter: blur(6px);
+      border-radius: 14px;
+      margin: 14px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+    }
+
+    .nav-links { display:flex;gap:14px;align-items:center }
+    .nav-links a { color: var(--muted); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px; transition: color .25s, background .25s; }
+    .nav-links a.active, .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.02); }
+
+    /* hero overrides to match the file  */
+    .hero { padding: 48px 0 72px; align-items:center; min-height:82vh; }
+    .hero-inner { align-items:center; gap:36px; }
+    .hero-card { padding:28px; }
+    .hero-text h1 { margin:0 0 8px; font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.6vw, 44px); }
+    .hero-text p { margin:8px 0; color:var(--muted); font-family: 'Lora', serif; line-height:1.7; }
+
+    .hero-portrait { width:420px; height:420px; border-radius:18px; overflow:hidden; cursor:grab; }
+    .hero-portrait img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* responsive spacing */
+    @media (max-width:920px){
+      .hero-inner { grid-template-columns: 1fr; justify-items:center; }
+      .hero-portrait { width:320px; height:320px; }
+      .hero-card { width:100%; max-width:760px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header class="site-header container">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="logo-icon" aria-hidden="true" style="background:linear-gradient(180deg,var(--accent-1),var(--accent-2));border-radius:8px;width:40px;height:40px"></div>
+      <div class="logo-text">Tulika Singh</div>
+    </div>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="C:\Users\santo\portfolio\about.html">About</a>
+      <a href="C:\Users\santo\portfolio\project.html">Projects</a>
+      <a href="C:\Users\santo\portfolio\contact.html">Get in Touch</a>
+      <button class="bookmarkBtn" aria-label="View projects" onclick="location.href="C:\Users\santo\portfolio\project.html"">
+        <div class="IconContainer" aria-hidden="true">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 2h12v20l-6-4-6 4V2z" fill="white" /></svg>
+        </div>
+        <div class="text">View Projects</div>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero">
+    <div class="container hero-inner" style="display:grid;grid-template-columns: 420px 1fr; align-items:center;">
+
+      <!-- Portrait (left) -->
+      <div class="hero-portrait tilt-on-hover" id="portrait">
+        <img src="C:\Users\santo\portfolio\image_tuls\WhatsApp Image 2025-11-04 at 21.13.52_ca9f7b7a.jpg"alt="Portrait of Tulika Singh (placeholder)">
+      </div>
+
+      <!-- Intro (right) -->
+      <div class="hero-card card hero-text animate-fade-in animate-delay-100">
+        <h1>🌐 <b>Meet Tulika Singh</b></h1>
+
+        <p>
+          Hi, I’m <b>Tulika Singh</b> — a passionate tech enthusiast, public speaker, and leader currently pursuing my BCA at IITM (affiliated with GGSIPU).
+        </p>
+
+        <p>
+          I love turning ideas into impactful projects and conversations into meaningful connections. Whether I’m leading a team, anchoring an event, or brainstorming a new tech solution, I bring energy, curiosity, and purpose to everything I do.
+        </p>
+
+        <p>
+          Within a span of just one year, I’ve coordinated 20+ college events, led sponsorship and management initiatives, and currently serve as the Co-Head of Finance in my college club. Beyond my leadership roles, I’ve participated in hackathons, volunteered at NGOs, and worked on diverse projects that merge <b>innovation with empathy</b>.
+        </p>
+
+        <p>
+          I believe every interaction, every idea, and every line of code has the potential to create an impact — and that’s exactly what I strive for.
+        </p>
+
+        <p style="margin-top:12px; font-style:italic; color:var(--muted);">
+          🚀 <i>Welcome to my space — where technology meets communication, and passion turns into purpose.</i>
+        </p>
+
+       <div class="hero-cta" style="margin-top:18px">
+
+   <div class="hero-cta" style="margin-top:18px">
+          <button class="bookmarkBtn primary-cta" onclick="location.href= 'C:\project.html'">
+            <div class="IconContainer"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 2h12v20l-6-4-6 4V2z" fill="white" /></svg></div>
+            <div class="text">View Projects</div>
+          </button>
+
+          <button class="bookmarkBtn secondary-cta" onclick="location.href='C:\contact.html'">
+            <div class="IconContainer"><svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M3 8l9 6 9-6" stroke="white" stroke-width="2" fill="none"/></svg></div>
+            <div class="text">Get in Touch</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main> 
+
+
+
+  <!-- Projects preview section (small, optional) -->
+  <section class="container animate-fade-in animate-delay-300" style="margin-top:28px">
+    <h2 style="margin:0 0 12px">Selected Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <div class="cover"><img src="C:\Users\santo\portfolio\image_tuls\medease logo .jpg" alt="Project 1"></div>
+        <div class="meta"><h3>Medease</h3><p style="color:var(--muted)">Building the digital backbone of Indian healthcare.</p></div>
+      </div>
+      <div class="card">
+        <div class="cover"><img src="C:\Users\santo\portfolio\image_tuls\homify logo .jpg" alt="Project 2"></div>
+        <div class="meta"><h3>homify</h3><p style="color:var(--muted)">Where data meets real estate decisions.</p></div>
+      </div>
+      <div class="card">
+        <div class="cover"><img src="C:\Users\santo\portfolio\image_tuls\weather .jpg" alt="Project 3"></div>
+        <div class="meta"><h3>weather app</h3><p style="color:var(--muted)">predict the weather</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERSAL FOOTER -->
+  <footer class="site-footer" role="contentinfo" style="margin-top:48px">
+    <div class="footer-inner">
+      <div class="footer-left">© 2025 Tulika Singh — Built with care.</div>
+      <div class="footer-icons">
+        <a href="index.html" class="footer-icon-circle">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" width="18" alt="Home" />
+        </a>
+
+        <a href=https://www.linkedin.com/in/tulika-singh-5a00b3342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app target="_blank" aria-label="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="18" height="18">
+        </a>
+        <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="18" height="18">
+        </a>
+        <a href="mailto:tulikasingh0606@gmail.com" aria-label="Email">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="18" height="18">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE JS -->
+  <script>
+    // hero portrait mouse tilt (subtle and performant)
+    (function(){
+      const portrait = document.getElementById('portrait');
+      if(!portrait) return;
+
+      let rect = null;
+      portrait.addEventListener('mousemove', (e) => {
+        if(!rect) rect = portrait.getBoundingClientRect();
+        const cx = rect.left + rect.width/2;
+        const cy = rect.top + rect.height/2;
+        const dx = e.clientX - cx;
+        const dy = e.clientY - cy;
+        const px = (dy / rect.height) * -12; // rotateX
+        const py = (dx / rect.width) * 12;   // rotateY
+        portrait.style.transform = `rotateX(${px}deg) rotateY(${py}deg) translateZ(18px)`;
+      });
+
+      portrait.addEventListener('mouseleave', () => {
+        portrait.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+
+      portrait.addEventListener('mousedown', () => portrait.style.cursor = 'grabbing');
+      portrait.addEventListener('mouseup', () => portrait.style.cursor = 'grab');
+    })();
+
+    // reveal on scroll for animated elements (simple)
+    (function(){
+      const obsOptions = { root: null, rootMargin: '0px', threshold: 0.12 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, obsOptions);
+
+      document.querySelectorAll('.animate-fade-in, .card, .hero-text').forEach(el => observer.observe(el));
+    })();
+
+    // small subtle parallax for background radial glows (based on mouse)
+    (function(){
+      const root = document.documentElement;
+      window.addEventListener('mousemove', (e) => {
+        const rx = (e.clientX / window.innerWidth) - 0.5;
+        const ry = (e.clientY / window.innerHeight) - 0.5;
+        root.style.setProperty('--parallax-x', (rx * 10).toFixed(2) + 'px');
+        root.style.setProperty('--parallax-y', (ry * 10).toFixed(2) + 'px');
+      }, { passive:true });
+    })();
+  </script>
+</body>
+</html>
