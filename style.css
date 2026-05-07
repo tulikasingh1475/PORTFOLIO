@@ -348,3 +348,120 @@ h2{font-size:clamp(20px,2.4vw,28px)}
     0 0 18px rgba(96,165,250,1),
     0 0 30px rgba(96,165,250,0.9);
 }
+/* =========================
+   MOBILE FIXES
+========================= */
+
+@media (max-width: 768px){
+
+  .site-header{
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .nav-links{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero{
+    min-height: auto;
+    padding-top: 30px;
+  }
+
+  .hero-inner{
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero-portrait{
+    width: 260px !important;
+    height: 260px !important;
+    margin: auto;
+  }
+
+  .hero-card{
+    padding: 22px;
+  }
+
+  .hero-card h1{
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-card p{
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .hero-cta{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bookmarkBtn{
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .projects-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-inner{
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-icons{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+}
+.site-header{
+  position: sticky;
+  top: 12px;
+  z-index: 60;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.01),
+    rgba(255,255,255,0.005)
+  );
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  margin: 14px auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+}
+
+.nav-links{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.nav-links a{
+  color: var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 10px;
+  border-radius:8px;
+  transition:0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#fff;
+  background: rgba(255,255,255,0.05);
+}
